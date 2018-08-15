@@ -1,11 +1,8 @@
 FROM arm32v7/node
 
-WORKDIR /usr/app
+WORKDIR /usr/app/
 
-COPY . .
+COPY ./package.json ./
+RUN npm install --quiet
 
-RUN npm install
-
-EXPOSE 4443
-
-CMD [ "npm", "start" ]
+COPY ./ ./
